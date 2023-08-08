@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Make sure index.css is in the same directory as this HTML file -->
+    <link rel="stylesheet" href="public/dist/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Transaction</title>
+</head>
+<body>
+    <div class="message">
+    
+    </div>
+    <div class="container d-flex justify-content-center align-items-center"
+        style="height: 90vh;background:#ffffff;width: 50%;">
+        <div class="transaction-block" style="width: 60%;">
+            <div class="d-flex justify-content-center " style="margin-bottom: 1rem;">
+                <input style="width: 40%" type="text" class="form-control" id="rechercher_compte"
+                    placeholder="Rechercher Compte">
+            </div>
+            <div class=" d-flex justify-content-between" style="margin-bottom: 2rem">
+                <button style="color: aliceblue;background-color:#006d77; width:120px ;height: 40px; border-radius:10px"
+                    data-bs-toggle="modal" data-bs-target="#client">Ajout Client</button>
+                <button style="color: aliceblue;background-color:#006d77;width:120px ;height: 40px;border-radius:10px"
+                    data-bs-toggle="modal" data-bs-target="#compte">Ajout Compte</button>
+            </div>
+            <div class="company-name" style="color: #006d77;">Breukh-Transfert</div>
+            <label for="expediteur" class="fs-4" style="margin-bottom: 1rem;">Expéditeur:</label>
+            <div class="form-group mb-2 align-items-center  d-flex justify-content-between">
+                <input type="text" id="expediteur-numero" class="form-control" placeholder="Numéro de compte/Telephone"
+                    style="width: 12em;">
+                <input type="text" id="expediteur-name" class="form-control" placeholder="Nom Complet"
+                    style="width: 12em;">
+                   
+            </div>
+            <i class="fa-solid fa-circle-info " style="margin-bottom: 1rem;"></i>
+            <label for="montant" class="fs-4" style="margin-bottom: 1rem;">Transaction: </label>
+
+            <input type="text" id="montant-transaction" class="form-control Montant" placeholder="Montant"
+                style="width: 12em;margin-bottom: 1rem;">
+            <div class="form-group  align-items-center d-flex  ">
+                <div>
+                    <label for="fournisseurs">Fournisseur:</label>
+                    <select id="fournisseur" style="width:12em;height: 40px;border-radius:10px;background:#ffffff">
+                    </select>
+                </div>
+                <div class="" style="margin-left: 30%">
+                    <label for="transactions">Transactions:</label>
+                    <select id="transaction-select"
+                        style="width:12em;height: 40px;border-radius:10px;background:#ffffff">
+                    </select>
+                </div>
+                
+            </div>
+            <div class=" ">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="">Code</label>
+                            <input type="text" class="form-control" id="codeT">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <label for="recipient" class="fs-4" style="margin-bottom: 1rem;">Recipient:</label>
+            <div class="form-group mb-2 align-items-center d-flex justify-content-between colfour">
+                <input type="text" id="recipientnumber" class="form-control" placeholder="Numero compte/Telephone "
+                    style="width: 12em;">
+                <input type="text" id="recipientname" class="form-control" placeholder="Nom Complet"
+                    style="width: 12em;">
+            </div>
+           <div class="error text-danger">
+        </div>
+            <button id="soumettre"
+                style="color: aliceblue;background-color:#006d77;width: 120px;height: 40px;border-radius:10px;margin-left: 38%;">Soumettre</button>
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="client" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Ajouter Client</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nom Complet</label>
+                            <input type="text" class="form-control" id="idname" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Télephone</label>
+                            <input type="text" class="form-control" id="telephoneId">
+                            <div id="phoneHelp" class="form-text text-danger">Saisir un numero valide</div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" id="submitClient">Submit</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="compte" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Ajouter Compte</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Fournisseur</label>
+                            <select class="form-control" id="fournisseur-select"></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Télephone</label>
+                            <input type="text" class="form-control" id="numero-ajout-compte">
+                            <!-- <div id="" class="form-text text-danger">Saisir un numero valide</div> -->
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" id="soumettrecompte">Submit</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">An active item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul> -->
+    <div class="list-group">
+    </div>
+    <!-- Modal -->
+    <div class="modal-compte" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="modal-compte">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Details Compte </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeModal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nom Complet :</label>
+                         <span id="affiche-nom" ></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Telephone :</label>
+                         <span id="affiche-telephone" ></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Solde :</label>
+                         <span id="affiche-solde" ></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Fournisseur :</label>
+                         <span id="affiche-fournisseur" ></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Statut :</label>
+                         <span id="affiche-statut" ></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" id="block">Bloqué</button>
+                    <button type="button" class="btn btn-primary" id="deblock">Debloqué</button>
+                    <button type="button" class="btn btn-danger" id="supprim">Supprimé</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="historique">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeModalHistorique"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between">
+                        <label for="exampleInputEmail1" class="form-label">Trier par</label>
+                        <select>
+                            <option value="">Date</option>
+                            <option value="">Montant</option>
+                            <option value="">Numero Compte</option>
+                            <option value="">Telephone</option>
+                        </select>
+                    </div>
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Montant</th>
+                            <th scope="col">Type Transaction</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="public/dist/js/app.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
